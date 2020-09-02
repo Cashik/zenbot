@@ -12,8 +12,10 @@ mongodb:
   image: mongo:latest
   volumes_from:
     - mongodb-data
-  command: mongod --smallfiles --bind_ip=0.0.0.0 --logpath=/dev/null
-
+  command: --bind_ip=localhost --logpath=/dev/null
+  expose:
+    - 27017
+  
 mongodb-data:
   image: mongo:latest
   volumes:
